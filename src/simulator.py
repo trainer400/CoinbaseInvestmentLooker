@@ -6,7 +6,7 @@ import datetime as dt
 import time
 
 INITIAL_INVESTMENT = 100
-LOG_FILE = "../logs/ETC-USD-1YR.csv"
+LOG_FILE = "../execution_logs/ETC-USD-1YR.csv"
 COIN_NAME = "ETC-USDC"
 CURRENCY_NAME = "ETC"
 BASE_CURRENCY_NAME = "USDC"
@@ -40,7 +40,7 @@ def read_log_file(path: str) -> tuple[list, list]:
     data_unix = []
     for row in reader:
         data_ts.append(int(row["timestamp"]))
-        data_price.append(float(row["price"]))
+        data_price.append(float(row["current_price"]))
         data_unix.append(dt.datetime.fromtimestamp(int(row["timestamp"])))
 
     file.close()

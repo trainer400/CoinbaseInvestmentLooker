@@ -12,7 +12,7 @@ KEY_FILE_NAME = "key.json"
 class LoggedData(LoggableObject):
     timestamp = 0
     unix_date = 0
-    price = 0.0
+    current_price = 0.0
 
 
 def gather_data(client: RESTClient, coin_name: str, starting_timestamp: int):
@@ -69,7 +69,7 @@ def main():
         data = LoggedData()
         data.timestamp = data_ts[i]
         data.unix_date = data_dates[i]
-        data.price = data_prices[i]
+        data.current_price = data_prices[i]
 
         # Log the data into the file
         log_data(get_absolute_path("../history.csv"), data)
